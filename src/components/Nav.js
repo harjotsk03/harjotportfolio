@@ -5,20 +5,28 @@ import {
   AiOutlineMenuFold,
   AiOutlineMenuUnfold,
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "./logoWebsite.svg";
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setOpen(!open);
   };
 
+  const goHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className="relative">
-      <div className="w-11/12 h-16 flex items-center rounded-2xl px-6 justify-between bg-transparent outer-glow backdrop-blur-md fixed top-4 lg:top-10 left-1/2 transform -translate-x-1/2 z-20">
-        <img src={logo} className="w-6 h-6"></img>
+      <div className="w-11/12 lg:w-3/4 h-16 flex items-center rounded-2xl px-6 justify-between bg-transparent outer-glow backdrop-blur-md fixed top-4 lg:top-10 left-1/2 transform -translate-x-1/2 z-20">
+        <button onClick={goHome} className="lg:hover:cursor-pointer">
+          <img src={logo} className="w-6 h-6"></img>
+        </button>
+
         <button
           className={`text-md poppins-medium hover:cursor-pointer transition-transform duration-300 ease-in-out transform ${
             open ? "scale-110" : "scale-90"
