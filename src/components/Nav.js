@@ -6,6 +6,7 @@ import {
   AiOutlineMenuUnfold,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import logo from "./logoWebsite.svg";
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -16,8 +17,8 @@ export const Nav = () => {
 
   return (
     <div className="relative">
-      <div className="lg:w-2/5 w-11/12 h-16 flex items-center rounded-2xl px-6 justify-between bg-white fixed top-4 lg:top-10 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="text-sm poppins-medium uppercase">Harjot Singh</div>
+      <div className="w-11/12 h-16 flex items-center rounded-2xl px-6 justify-between bg-transparent outer-glow backdrop-blur-md fixed top-4 lg:top-10 left-1/2 transform -translate-x-1/2 z-20">
+        <img src={logo} className="w-6 h-6"></img>
         <button
           className={`text-md poppins-medium hover:cursor-pointer transition-transform duration-300 ease-in-out transform ${
             open ? "scale-110" : "scale-90"
@@ -46,7 +47,7 @@ export const Nav = () => {
           height: 100%;
           width: 100vw; /* Full width */
           overflow: hidden;
-          background-color: #000000;
+          background-color: #f7f7f7;
           transition: all 1s ease-in-out; /* Faster transition */
           z-index: 10;
         }
