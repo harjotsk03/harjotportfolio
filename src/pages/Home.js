@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import SmoothScroll from "../components/SmoothScroll";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 import { Hero } from "../components/Home/Hero";
-import { About } from "../components/Home/About";
+import { Projects } from "../components/Home/Projects";
+import { Footer } from "../components/Footer";
 
 export const Home = () => {
   return (
-    <SmoothScroll>
-      <section data-scroll-section>
-        <Hero />
-      </section>
-      <section data-scroll-section>
-        <About />
-      </section>
-    </SmoothScroll>
+    <div>
+      <Hero />
+      <Projects />
+
+      <Footer />
+    </div>
   );
 };

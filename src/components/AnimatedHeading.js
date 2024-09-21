@@ -48,7 +48,7 @@ const GreenText = styled.span`
 
 const AnimatedHeading = () => {
   return (
-    <Container className="-mt-40 -ml-20 lg:ml-0">
+    <Container className="-mt-40 -ml-20 lg:-ml-14">
       <Heading>
         <SlideUpDiv>
           <p className="poppins-semibold text-2xl lg:text-7xl" delay="0s">

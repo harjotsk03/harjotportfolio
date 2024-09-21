@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AiOutlineClose,
   AiOutlineMenu,
   AiOutlineMenuFold,
   AiOutlineMenuUnfold,
 } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "./logoWebsite.svg";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import logo from "../images/logoWebsite.svg";
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleNav = () => {
     setOpen(!open);
@@ -20,15 +21,19 @@ export const Nav = () => {
     navigate("/");
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="relative">
-      <div className="w-11/12 lg:w-3/4 h-16 flex items-center rounded-2xl px-6 justify-between bg-transparent outer-glow backdrop-blur-md fixed top-4 lg:top-10 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="w-11/12 h-16 flex items-center rounded-2xl px-6 justify-between bg-transparent  fixed top-4 lg:top-10 left-1/2 transform -translate-x-1/2 z-50">
         <button onClick={goHome} className="lg:hover:cursor-pointer">
           <img src={logo} className="w-6 h-6"></img>
         </button>
 
         <button
-          className={`text-md poppins-medium hover:cursor-pointer transition-transform duration-300 ease-in-out transform ${
+          className={`text-md z-60 poppins-medium hover:cursor-pointer hover:text-purple-500 transition duration-300 ease-in-out ${
             open ? "scale-110" : "scale-90"
           }`}
           onClick={toggleNav}
@@ -57,7 +62,7 @@ export const Nav = () => {
           overflow: hidden;
           background-color: #f7f7f7;
           transition: all 1s ease-in-out; /* Faster transition */
-          z-index: 10;
+          z-index: 40;
         }
         .menu__nav--open {
           right: 0; /* Slide in */

@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Nav } from "./components/Nav";
 import { useEffect, useState } from "react";
 import AnimatedHeading from "./components/AnimatedHeading";
+import { StudySpotr } from "./pages/StudySpotr";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ const App = () => {
           }`}
           style={{
             height: "100vh",
+            overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -40,10 +42,11 @@ const App = () => {
       )}
 
       {!loading && (
-        <div className="fadeIn">
+        <div className="fadeIn h-max">
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/studySpotr" element={<StudySpotr />} />
           </Routes>
         </div>
       )}

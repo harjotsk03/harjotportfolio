@@ -5,7 +5,7 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
 } from "react-icons/ai";
-import resume from "../HarjotResume.pdf";
+import resume from "../../images/HarjotResume.pdf";
 import {
   BiFile,
   BiFileBlank,
@@ -13,6 +13,12 @@ import {
   BiLogoInstagram,
   BiLogoLinkedin,
 } from "react-icons/bi";
+import {
+  FiArrowDownRight,
+  FiArrowUpLeft,
+  FiArrowUpRight,
+} from "react-icons/fi";
+import { FaArrowRight } from "react-icons/fa";
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,25 +29,25 @@ export const Hero = () => {
 
   const buttonData = [
     {
-      icon: <BiLogoLinkedin size={30} />,
+      icon: <BiLogoLinkedin size={25} />,
       tooltip: "LinkedIn",
       key: "linkedin",
       link: "https://www.linkedin.com/in/harjotsingh7/",
     },
     {
-      icon: <BiLogoGithub size={30} />,
+      icon: <BiLogoGithub size={25} />,
       tooltip: "GitHub",
       key: "github",
       link: "https://github.com/harjotsk03",
     },
     {
-      icon: <BiFileBlank size={30} />,
+      icon: <BiFileBlank size={25} />,
       tooltip: "Resume",
       key: "resume",
       link: resume,
     },
     {
-      icon: <BiLogoInstagram size={30} />,
+      icon: <BiLogoInstagram size={25} />,
       tooltip: "Instagram",
       key: "instagram",
       link: "https://www.instagram.com/7harjotsk/",
@@ -51,7 +57,7 @@ export const Hero = () => {
   const ButtonWithTooltip = ({ icon, tooltip, link }) => (
     <a href={link} target="_blank" rel="noopener noreferrer">
       <div className="relative group inline-block" key={tooltip}>
-        <div className="hidden lg:flex bg-gray-100 poppins-regular bg-opacity-70 text-black px-2 py-1 text-xs rounded-lg absolute -top-6 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-500">
+        <div className="hidden lg:flex bg-gray-100 poppins-regular bg-opacity-70 text-black px-2 py-1 text-xs rounded-lg absolute -top-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-500">
           {tooltip}
         </div>
         <button className="text-black opacity-10 p-3 rounded-lg hover:bg-white hover:bg-opacity-5 hover:opacity-90 transition duration-300 ease-in-out">
@@ -62,19 +68,24 @@ export const Hero = () => {
   );
 
   return (
-    <div className="bg-white lg:px-60 px-6 h-max pt-32 lg:pt-40 pb-10 lg:pb-20">
-      <h2 className="poppins-semibold text-2xl lg:text-7xl">
-        harjot singh kooner<span className="text-purple-500">.</span>
+    <div className="bg-white lg:px-60 px-8 h-max pt-32 lg:pt-40 pb-10 lg:pb-20">
+      <h2
+        style={{ lineHeight: "1.15" }}
+        className="poppins-semibold text-5xl lg:text-7xl"
+      >
+        harjot singh kooner
+        {/* <span className="text-purple-500">.</span> */}
       </h2>
       <p
         style={{ lineHeight: "1.55" }} // Adjust this value as needed
-        className="text-lg ml-1 lg:text-xl poppins-light mt-1 lg:mt-7 w-2/3"
+        className="text-lg ml-0 lg:ml-1.5 lg:text-xl poppins-light w-11/12 mt-6 lg:mt-6 lg:w-3/4"
       >
-        BSc. Computer Science and Interactive Technology at Simon Fraser
-        University. Specializing in front-end development & user experience
-        focused development
+        BSc. in Computer Science and Interactive Technology at Simon Fraser
+        University. Specializing in full-stack software development & user
+        experience focused design
       </p>
-      <div className="flex pr-16 mt-16 gap-4 lg:justify-end">
+
+      <div className="flex mt-16 lg:mt-44 -ml-3 gap-4 lg:justify-start">
         <div className="flex flex-row gap-2 mt-10 lg:mt-0">
           {buttonData.map(({ icon, tooltip, link, key }) => (
             <ButtonWithTooltip
@@ -85,8 +96,10 @@ export const Hero = () => {
             />
           ))}
         </div>
-        <div className="w-72 rounded-l-full fixed mt-6 bg-opacity-10 right-0 h-1 bg-black"></div>
       </div>
+      <p className="poppins-light hover:cursor-default flex flex-row items-center gap-2 text-black text-xs text-opacity-20 ml-0.5">
+        get in touch
+      </p>
     </div>
   );
 };
