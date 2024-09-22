@@ -5,8 +5,13 @@ import { Nav } from "./components/Nav";
 import { useEffect, useState } from "react";
 import AnimatedHeading from "./components/AnimatedHeading";
 import { StudySpotr } from "./pages/StudySpotr";
+import { SFURS } from "./pages/SFURS";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
+  AOS.init();
+
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -47,6 +52,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/studySpotr" element={<StudySpotr />} />
+            <Route path="/SFURobotSoccer" element={<SFURS />} />
           </Routes>
         </div>
       )}

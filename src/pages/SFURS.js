@@ -7,13 +7,13 @@ import slide4 from "../images/studySpotrImages/Study Spotr 4.png";
 import { Footer } from "../components/Footer";
 import SectionButton from "../components/UI/SectionButton";
 import ProjectHero from "../components/UI/ProjectHero";
-import image from "../images/studySpotr.png";
+import image from "../images/sfurobotsoccer.png";
 import ProblemSolution from "../components/UI/ProblemSolution";
 import ProjectInfo from "../components/UI/ProjectInfo";
 import Carousel from "../components/UI/Carousel";
 import Loading from "../components/UI/Loading";
 
-export const StudySpotr = () => {
+export const SFURS = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [slide1, slide2, slide3, slide4];
 
@@ -100,14 +100,22 @@ export const StudySpotr = () => {
     <>
       <div className="lg:px-48 fadeInUpFast px-10 pt-24 lg:pt-20 flex flex-col">
         <ProjectHero
-          name="Study Spotr"
-          description="A study spot finder where users can find, add, and rate study spots
-          near them or anywhere around the world"
+          name="SFU Robot Soccer Website"
+          description="Robot Soccer club at Simon Fraser University, a design and developed website"
           image={image}
-          github="https://github.com/harjotsk03/studySpotter"
-          website="https://study-spotter-two.vercel.app/"
+          buttonColor="hover:text-red-500"
+          github="https://github.com/SFURobotSoccer/sfurobotsoccerwebsitedashboard"
+          website="https://www.sfurobotsoccer.com/"
         />
-        <ProblemSolution
+
+        <div className="w-full h-32 flex flex-col items-center justify-center ">
+          <h3 className="poppins-medium flex flex-col items-center">
+            More coming soon
+          </h3>
+          <Loading />
+        </div>
+
+        {/* <ProblemSolution
           problemText={problemText}
           solutionText={solutionText}
         />
@@ -158,13 +166,6 @@ export const StudySpotr = () => {
             <SectionButton name="Details" section="details" number="5" />
           </div>
 
-          <div className="w-full h-32 flex items-center flex-col justify-center ">
-            <h3 className="poppins-medium flex flex-col items-center">
-              More coming soon
-            </h3>
-            <Loading />
-          </div>
-          {/* 
           <div id="research" className="mt-8">
             <h1 className="text-3xl poppins-semibold ">Research</h1>
             <div className="h-max w-full"></div>
@@ -186,7 +187,7 @@ export const StudySpotr = () => {
             <h1 className="text-3xl poppins-semibold ">Other Details</h1>
             <div className="h-max w-full"></div>
           </div> */}
-        </div>
+        {/* </div> */}
       </div>
       <Footer />
     </>

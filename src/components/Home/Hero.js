@@ -57,7 +57,7 @@ export const Hero = () => {
   const ButtonWithTooltip = ({ icon, tooltip, link }) => (
     <a href={link} target="_blank" rel="noopener noreferrer">
       <div className="relative group inline-block" key={tooltip}>
-        <div className="hidden lg:flex bg-gray-100 poppins-regular bg-opacity-70 text-black px-2 py-1 text-xs rounded-lg absolute -top-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-500">
+        <div className="hidden lg:flex bg-gray-100 poppins-regular bg-opacity-70 text-black px-2 py-1 text-xs rounded-lg absolute top-12 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-500">
           {tooltip}
         </div>
         <button className="text-black opacity-10 p-3 rounded-lg hover:bg-white hover:bg-opacity-5 hover:opacity-90 transition duration-300 ease-in-out">
@@ -78,14 +78,26 @@ export const Hero = () => {
       </h2>
       <p
         style={{ lineHeight: "1.55" }} // Adjust this value as needed
-        className="text-lg ml-0 lg:ml-1.5 lg:text-xl poppins-light w-11/12 mt-6 lg:mt-6 lg:w-3/4"
+        className="text-lg ml-0 lg:ml-1.5 lg:text-xl poppins-light w-11/12 mt-6 lg:mt-8 lg:w-3/4"
       >
         BSc. in Computer Science and Interactive Technology at Simon Fraser
         University. Specializing in full-stack software development & user
         experience focused design
       </p>
+      <button
+        onClick={() =>
+          window.open("https://www.linkedin.com/in/harjotsingh7/", "_blank")
+        }
+        className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 hover:text-purple-500 transition duration-300 ease-in-out group"
+      >
+        More About Me{" "}
+        <FiArrowUpRight className="transition-transform duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+      </button>
 
-      <div className="flex mt-16 lg:mt-44 -ml-3 gap-4 lg:justify-start">
+      <p className="poppins-light hover:cursor-default flex flex-row items-center gap-2 lg:justify-end text-black text-xs text-opacity-20 mt-16 lg:mt-32 lg:mr-3.5">
+        get in touch
+      </p>
+      <div className="flex -ml-3 mt-1 gap-4 lg:justify-end">
         <div className="flex flex-row gap-2 mt-10 lg:mt-0">
           {buttonData.map(({ icon, tooltip, link, key }) => (
             <ButtonWithTooltip
@@ -97,9 +109,6 @@ export const Hero = () => {
           ))}
         </div>
       </div>
-      <p className="poppins-light hover:cursor-default flex flex-row items-center gap-2 text-black text-xs text-opacity-20 ml-0.5">
-        get in touch
-      </p>
     </div>
   );
 };

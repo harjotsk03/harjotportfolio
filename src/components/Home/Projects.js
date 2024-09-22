@@ -5,6 +5,8 @@ import test1 from "../../images/ecogrow.png";
 import test4 from "../../images/pharmabotics.png";
 import test2 from "../../images/sfurobotsoccer.png";
 import test3 from "../../images/studySpotr.png";
+import Alert from "../UI/Alert";
+import { AnimatePresence } from "framer-motion";
 
 export const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +15,7 @@ export const Projects = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 1000); // Delay before showing the element
+    }, 1000);
 
     return () => clearTimeout(timer); // Cleanup on unmount
   }, []);
@@ -22,8 +24,23 @@ export const Projects = () => {
     navigate(`/${location}`);
   };
 
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false); // Reset the state to false after alert disappears
+  };
+
   return (
     <div className="bg-white h-max lg:px-60 px-6 pt-2 lg:pt-0">
+      <AnimatePresence>
+        {showAlert && (
+          <Alert message="Case study coming soon!" onClose={handleCloseAlert} />
+        )}
+      </AnimatePresence>
       <div
         className={`flex fadeInUp flex-col lg:flex-row lg:gap-5 gap-8 transition-all duration-1000 ease-in-out ${
           isVisible ? "visible" : ""
@@ -80,7 +97,10 @@ export const Projects = () => {
         </button>
 
         {/* SFU ROBOT SOCCER */}
-        <div className="relative lg:w-1/2 flex flex-col items-start hover:cursor-pointer">
+        <button
+          onClick={() => goTo("SFURobotSoccer")}
+          className="relative lg:w-1/2 flex flex-col items-start hover:cursor-pointer"
+        >
           <div className="group lg:h-96 w-full bg-black rounded-lg overflow-hidden transition-all duration-1000 ease-in-out">
             <div className="absolute mix-blend-difference top-4 right-4 z-30 text-white transition-transform duration-300 ease-in-out group-hover:rotate-45">
               <FiArrowUpRight size={28} />
@@ -112,13 +132,16 @@ export const Projects = () => {
               Google Firebase
             </p>
           </div>
-        </div>
+        </button>
       </div>
       <div
         className={`flex fadeInUp flex-col lg:flex-row lg:gap-5 gap-8 transition-all mt-10 duration-1000 ease-in-out visible`}
       >
         {/* PHARMABOTICS */}
-        <div className="relative lg:w-1/2 flex flex-col items-start hover:cursor-pointer">
+        <button
+          onClick={handleShowAlert}
+          className="relative lg:w-1/2 flex flex-col items-start hover:cursor-pointer"
+        >
           <div className="group lg:h-96 w-full bg-black rounded-lg overflow-hidden transition-all duration-1000 ease-in-out">
             <div className="absolute mix-blend-difference top-4 right-4 z-30 text-white transition-transform duration-300 ease-in-out group-hover:rotate-45">
               <FiArrowUpRight size={28} />
@@ -159,10 +182,13 @@ export const Projects = () => {
               ExpressJS
             </p>
           </div>
-        </div>
+        </button>
 
         {/* ECOGROW */}
-        <div className="relative lg:w-1/2 flex flex-col items-start hover:cursor-pointer">
+        <button
+          onClick={handleShowAlert}
+          className="relative lg:w-1/2 flex flex-col items-start hover:cursor-pointer"
+        >
           <div className="group lg:h-96 w-full bg-black rounded-lg overflow-hidden transition-all duration-1000 ease-in-out">
             <div className="absolute mix-blend-difference top-4 right-4 z-30 text-white transition-transform duration-300 ease-in-out group-hover:rotate-45">
               <FiArrowUpRight size={28} />
@@ -185,7 +211,7 @@ export const Projects = () => {
               Java
             </p>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );
