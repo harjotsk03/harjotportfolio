@@ -26,7 +26,7 @@ const Alert = ({ message, onClose }) => {
       exit="exit"
       variants={alertVariants}
       transition={{ duration: 0.5, ease: "easeInOut" }} // Animation speed
-      className="fixed flex flex-row items-center gap-2 bottom-5 right-5 bg-black text-white poppins-medium text-sm py-3 px-5 lg:text-md lg:py-10 lg:px-14 rounded-2xl drop-shadow-lg z-50"
+      className="fixed flex flex-row items-center gap-2 bottom-5 right-5 bg-black text-white poppins-medium text-sm py-3 px-5 lg:text-md lg:py-4 lg:px-5 rounded-2xl drop-shadow-lg z-50"
     >
       <span className="shake-animation">
         <FiBell />

@@ -65,8 +65,8 @@ export const Projects = () => {
             Study Spotr
           </h2>
           <p className="poppins-light mt-1 lg:mt-1.5 w-11/12">
-            A study spot finder where users can find, add, and rate study spots
-            near them or anywhere around the world
+            Designed and developed a study spot finder where users can find,
+            add, and rate study spots near them or anywhere around the world
           </p>
           <div className="flex flex-wrap w-10/12 mt-3 gap-1.5 lg:gap-3">
             <p className="borderWidth border-black px-3 opacity-50 transition duration-300 ease-in-out lg:hover:opacity-100 lg:hover:text-blue-400  text-xs py-1 rounded-full">
@@ -114,7 +114,7 @@ export const Projects = () => {
           <h2 className="poppins-medium mt-3 text-xl lg:mt-5 text-3xl">
             SFU Robot Soccer Website
           </h2>
-          <p className="poppins-light mt-1 lg:mt-1.5 w-11/12">
+          <p className="poppins-light text-left mt-1 lg:mt-1.5 w-11/12">
             Redesigned and developed the SFU RS website for better mobile
             usability, a more unified feeling UI, and better user engagement
           </p>
@@ -155,9 +155,9 @@ export const Projects = () => {
           <h2 className="poppins-medium mt-3 text-xl lg:mt-5 text-3xl">
             Pharmabotics
           </h2>
-          <p className="poppins-light mt-1 lg:mt-1.5 w-11/12">
-            An algorithm learning and visual aid tool, developed to help student
-            and anyone to learn data structures and algorithms
+          <p className="poppins-light text-left mt-1 lg:mt-1.5 w-11/12">
+            Developed an automated medicine dispenser using Arduino & C++, MERN
+            stack, for front-back end communication
           </p>
           <div className="flex flex-wrap w-10/12 mt-3 gap-1.5 lg:gap-3">
             <p className="borderWidth border-black px-3 opacity-50 transition duration-300 ease-in-out lg:hover:opacity-100 lg:hover:text-blue-400  text-xs py-1 rounded-full">
@@ -202,9 +202,9 @@ export const Projects = () => {
           <h2 className="poppins-medium mt-3 text-xl lg:mt-5 text-3xl">
             EcoGrow
           </h2>
-          <p className="poppins-light mt-1 lg:mt-1.5 w-11/12">
-            Redesigned and developed the SFU RS website for better mobile
-            usability, a more unified feeling UI, and better user engagement
+          <p className="poppins-light text-left mt-1 lg:mt-1.5 w-11/12">
+            Developed a garden game simulator in Java to learn and show my
+            understanding of Object Oriented Programming & software design
           </p>
           <div className="flex flex-wrap w-10/12 mt-3 gap-1.5 lg:gap-3">
             <p className="borderWidth border-black px-3 opacity-50 transition duration-300 ease-in-out lg:hover:opacity-100 lg:hover:text-orange-400  text-xs py-1 rounded-full">

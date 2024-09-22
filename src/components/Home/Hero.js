@@ -19,12 +19,24 @@ import {
   FiArrowUpRight,
 } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa";
+import { AnimatePresence } from "framer-motion";
+import Alert from "../UI/Alert";
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false); // Reset the state to false after alert disappears
   };
 
   const buttonData = [
@@ -69,6 +81,11 @@ export const Hero = () => {
 
   return (
     <div className="bg-white lg:px-60 px-8 h-max pt-32 lg:pt-40 pb-10 lg:pb-20">
+      <AnimatePresence>
+        {showAlert && (
+          <Alert message="Coming Soon!" onClose={handleCloseAlert} />
+        )}
+      </AnimatePresence>
       <h2
         style={{ lineHeight: "1.15" }}
         className="poppins-semibold text-5xl lg:text-7xl"
@@ -84,20 +101,27 @@ export const Hero = () => {
         University. Specializing in full-stack software development & user
         experience focused design
       </p>
-      <button
-        onClick={() =>
-          window.open("https://www.linkedin.com/in/harjotsingh7/", "_blank")
-        }
-        className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 hover:text-purple-500 transition duration-300 ease-in-out group"
-      >
-        More About Me{" "}
-        <FiArrowUpRight className="transition-transform duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-      </button>
+      <div className="flex flex-row items-center gap-3">
+        <button
+          onClick={handleShowAlert}
+          className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 lg:hover:text-purple-500 transition duration-300 ease-in-out group"
+        >
+          About Me{" "}
+          <FiArrowUpRight className="transition-transform duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </button>
+        <button
+          onClick={handleShowAlert}
+          className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 lg:hover:text-purple-500 transition duration-300 ease-in-out group"
+        >
+          My Blog{" "}
+          <FiArrowUpRight className="transition-transform duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </button>
+      </div>
 
       <p className="poppins-light hover:cursor-default flex flex-row items-center gap-2 lg:justify-end text-black text-xs text-opacity-20 mt-16 lg:mt-32 lg:mr-3.5">
         get in touch
       </p>
-      <div className="flex -ml-3 mt-1 gap-4 lg:justify-end">
+      <div className="flex -ml-3  -mt-9 lg:mt-1 gap-4 lg:justify-end">
         <div className="flex flex-row gap-2 mt-10 lg:mt-0">
           {buttonData.map(({ icon, tooltip, link, key }) => (
             <ButtonWithTooltip
