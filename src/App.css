@@ -6,7 +6,6 @@
 
 html, body {
   overflow: scroll;
-  scrollbar-width: none; /* For Firefox */
 }
 
 [data-scroll-container] {

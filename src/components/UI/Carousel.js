@@ -47,7 +47,7 @@ const Carousel = ({
           <div
             key={index}
             className={`h-2 w-2 rounded-full mx-1 cursor-pointer transition-all duration-300 ${
-              currentIndex === index ? "bg-orange-500" : "bg-gray-300"
+              currentIndex === index ? "bg-black" : "bg-gray-300"
             }`}
             onClick={() => setCurrentIndex(index)} // Optional: Clickable dots to jump to specific images
           ></div>

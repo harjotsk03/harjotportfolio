@@ -33,7 +33,7 @@ export const Nav = () => {
         </button>
 
         <button
-          className={`text-md z-60 poppins-medium hover:cursor-pointer hover:text-purple-500 transition duration-300 ease-in-out ${
+          className={`text-md z-60 poppins-medium hover:cursor-pointer hover:text-gray-400 transition duration-300 ease-in-out ${
             open ? "scale-110" : "scale-90"
           }`}
           onClick={toggleNav}

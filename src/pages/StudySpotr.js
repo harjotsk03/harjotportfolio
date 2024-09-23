@@ -12,10 +12,16 @@ import ProblemSolution from "../components/UI/ProblemSolution";
 import ProjectInfo from "../components/UI/ProjectInfo";
 import Carousel from "../components/UI/Carousel";
 import Loading from "../components/UI/Loading";
+import mobile from "../images/studySpotrImages/mobileUse.png";
+import wouldUse from "../images/studySpotrImages/wouldUse.png";
+import often from "../images/studySpotrImages/oftenUse.png";
+import { PieChart } from "@mui/x-charts/PieChart";
+import { BiBorderAll } from "react-icons/bi";
 
 export const StudySpotr = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [slide1, slide2, slide3, slide4];
+  const [question, setQuestion] = useState(1);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -96,6 +102,75 @@ export const StudySpotr = () => {
     "Finish and tidy up the UI",
   ];
 
+  const wouldUse = [
+    {
+      label: "Yes",
+      value: 70.0,
+    },
+    {
+      label: "No",
+      value: 30.0,
+    },
+  ];
+
+  const device = [
+    {
+      label: "Mobile",
+      value: 60.0,
+    },
+    {
+      label: "Desktop",
+      value: 40.0,
+    },
+  ];
+
+  const often = [
+    {
+      label: "Never",
+      value: 30.0,
+    },
+    {
+      label: "Few times a month",
+      value: 10.0,
+    },
+    {
+      label: "Daily",
+      value: 20.0,
+    },
+    {
+      label: "2-3 times a week",
+      value: 40.0,
+    },
+  ];
+
+  const addQuestion = () => {
+    if (question != 3) {
+      setQuestion(question + 1);
+    }
+  };
+
+  const minusQuestion = () => {
+    if (question != 1) {
+      setQuestion(question - 1);
+    }
+  };
+
+  const getPieParams = () => {
+    const isMobile = window.innerWidth <= 768; // Example breakpoint for mobile
+    return {
+      height: 300,
+      width: 400,
+      slotProps: { legend: { hidden: true } },
+    };
+  };
+
+  const pieParams = getPieParams();
+
+  const valueFormatter = (item) => `${item.value}%`;
+
+  const palette = ["#E55437", "#79963c"];
+  const palette2 = ["#776cb2", "#96643C", "#79963c", "#667fb5"];
+
   return (
     <>
       <div className="lg:px-48 fadeInUpFast px-10 pt-24 lg:pt-20 flex flex-col">
@@ -104,6 +179,7 @@ export const StudySpotr = () => {
           description="A study spot finder where users can find, add, and rate study spots
           near them or anywhere around the world"
           image={image}
+          buttonColor="hover:text-orange-500"
           github="https://github.com/harjotsk03/studySpotter"
           website="https://study-spotter-two.vercel.app/"
         />
@@ -127,7 +203,7 @@ export const StudySpotr = () => {
           setCurrentIndex={setCurrentIndex}
         />
 
-        <div className="w-full h-max mt-16">
+        <div className="w-full h-max mt-16 text-left">
           <h2 className="poppins-semibold text-4xl leading-tight">
             Design and Development Process
           </h2>
@@ -144,7 +220,7 @@ export const StudySpotr = () => {
             .
           </p>
 
-          <div
+          {/* <div
             className={`w-full overflow-scroll noScrollBar bg-white h-max mt-5 lg:mt-0 py-10 z-10 flex lg:flex-row gap-10 justify-between rounded-2xl`}
           >
             <SectionButton name="Research" section="research" number="1" />
@@ -156,6 +232,149 @@ export const StudySpotr = () => {
               number="4"
             />
             <SectionButton name="Details" section="details" number="5" />
+          </div> */}
+
+          <div id="research" className="mt-10 w-full text-left ">
+            <h1 className="text-3xl poppins-semibold ">Research</h1>
+            <p className="poppins-regular mt-2 ml-auto mr-auto text-lg leading-relaxed">
+              Before beginning the design and development stage I did a{" "}
+              <span className="poppins-semibold"> short survey </span> where I
+              asked 10 of my class mates to fill out with{" "}
+              <span className="poppins-semibold"> 3 questions </span>, below you
+              can click through and see the results for each question.
+            </p>
+            <div className="h-max w-full">
+              {/* <div className="w-80 h-80 border-2 border-red-500">
+                <img
+                  src={wouldUse}
+                  className="w-full h-full object-cover"
+                  alt="Image description"
+                />
+              </div> */}
+
+              <div className="flex flex-col lg:flex-col mt-6 lg:mt-6 lg:p-10 lg:bg-gray-100 bg-opacity-40 rounded-2xl items-start">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between w-full">
+                  <button
+                    className={`bg-gray-200 h-max hidden lg:flex lg:hover:bg-black lg:hover:text-white poppins-regular transition duration-300 ease-in-out px-3 py-2 flex flex-row items-center gap-1 ${
+                      question === 1 ? "disabled opacity-30" : ""
+                    } rounded-lg`}
+                    onClick={minusQuestion}
+                  >
+                    <span className="hidden lg:block">
+                      <FiArrowLeft />
+                    </span>{" "}
+                    Back
+                  </button>
+                  <div className="flex flex-row justify-between lg:hidden">
+                    <button
+                      className={`bg-gray-200 h-max lg:hover:bg-black lg:hover:text-white poppins-regular transition duration-300 ease-in-out px-3 py-2 flex flex-row items-center gap-1 ${
+                        question === 1 ? "disabled opacity-30" : ""
+                      } rounded-lg`}
+                      onClick={minusQuestion}
+                    >
+                      <FiArrowLeft />
+                      Back
+                    </button>
+                    <button
+                      className={`bg-gray-200 lg:hover:bg-black lg:hover:text-white poppins-regular transition duration-300 ease-in-out px-3 py-2 flex flex-row items-center gap-1 ${
+                        question === 3 ? "disabled opacity-30" : ""
+                      } rounded-lg`}
+                      onClick={addQuestion}
+                    >
+                      Next <FiArrowRight />
+                    </button>
+                  </div>
+                  <p className="flex h-24 lg:h-max lg:mt-0 mt-3 poppins-regular text-lg lg:text-xl">
+                    {question === 1
+                      ? "Would you use an application to help you find study spots that you can rate and see others ratings?"
+                      : question === 2
+                      ? "How often would you use this application?"
+                      : "Would you use the application more on your mobile device or on a laptop?"}
+                  </p>
+                  <button
+                    className={`bg-gray-200 hidden h-max lg:flex lg:hover:bg-black lg:hover:text-white poppins-regular transition duration-300 ease-in-out px-3 py-2 flex flex-row items-center gap-1 ${
+                      question === 3 ? "disabled opacity-30" : ""
+                    } rounded-lg`}
+                    onClick={addQuestion}
+                  >
+                    Next <FiArrowRight />
+                  </button>
+                </div>
+                {question === 1 ? (
+                  <div className="pl-5 mt-5 lg:mt-0 lg:pl-32 ml-auto mr-auto">
+                    <div className=" lg:mt-4 -mt-6 rounded-2xl bg-opacity-30 lg:py-2  ">
+                      <PieChart
+                        colors={palette2}
+                        series={[
+                          {
+                            data: often,
+                            highlightScope: {
+                              fade: "global",
+                              highlight: "item",
+                            },
+                            faded: {
+                              innerRadius: 30,
+                              additionalRadius: -30,
+                              color: "gray",
+                            },
+                            valueFormatter,
+                          },
+                        ]}
+                        {...pieParams}
+                      />
+                    </div>
+                  </div>
+                ) : question === 2 ? (
+                  <div className="pl-5 mt-5 lg:mt-0 lg:pl-32 ml-auto mr-auto">
+                    <div className=" lg:mt-4 -mt-6 rounded-2xl bg-opacity-30 lg:py-2  ">
+                      <PieChart
+                        colors={palette}
+                        series={[
+                          {
+                            data: wouldUse,
+                            highlightScope: {
+                              fade: "global",
+                              highlight: "item",
+                            },
+                            faded: {
+                              innerRadius: 30,
+                              additionalRadius: -30,
+                              color: "gray",
+                            },
+                            valueFormatter,
+                          },
+                        ]}
+                        {...pieParams}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="pl-5 mt-5 lg:mt-0 lg:pl-32 ml-auto mr-auto">
+                    <div className=" lg:mt-4 -mt-6 rounded-2xl bg-opacity-30 lg:py-2  ">
+                      <PieChart
+                        colors={palette}
+                        series={[
+                          {
+                            data: device,
+                            highlightScope: {
+                              fade: "global",
+                              highlight: "item",
+                            },
+                            faded: {
+                              innerRadius: 30,
+                              additionalRadius: -30,
+                              color: "gray",
+                            },
+                            valueFormatter,
+                          },
+                        ]}
+                        {...pieParams}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
           <div className="w-full h-32 flex items-center flex-col justify-center ">
@@ -164,12 +383,7 @@ export const StudySpotr = () => {
             </h3>
             <Loading />
           </div>
-          {/* 
-          <div id="research" className="mt-8">
-            <h1 className="text-3xl poppins-semibold ">Research</h1>
-            <div className="h-max w-full"></div>
-          </div>
-
+          {/*           
           <div id="design" className="mt-8">
             <h1 className="text-3xl poppins-semibold ">UI & Software Design</h1>
             <div className="h-max w-full"></div>

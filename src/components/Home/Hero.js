@@ -90,7 +90,7 @@ export const Hero = () => {
         style={{ lineHeight: "1.15" }}
         className="poppins-semibold text-5xl lg:text-7xl"
       >
-        harjot singh kooner
+        harjot singh
         {/* <span className="text-purple-500">.</span> */}
       </h2>
       <p

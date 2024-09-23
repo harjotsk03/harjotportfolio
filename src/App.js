@@ -47,7 +47,7 @@ const App = () => {
       )}
 
       {!loading && (
-        <div className="fadeIn h-max">
+        <div className="fadeIn h-max overflow-y-scroll">
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />

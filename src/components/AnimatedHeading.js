@@ -57,7 +57,7 @@ const AnimatedHeading = () => {
         </SlideUpDiv>
         <SlideUpDiv>
           <p className="poppins-semibold text-2xl lg:text-7xl" delay="2s">
-            coding for the present<span className="text-purple-500">.</span>
+            coding for the present.
           </p>
         </SlideUpDiv>
       </Heading>
