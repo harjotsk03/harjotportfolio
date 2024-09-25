@@ -88,7 +88,7 @@ export const Hero = () => {
       </AnimatePresence>
       <h2
         style={{ lineHeight: "1.15" }}
-        className="poppins-semibold text-5xl lg:text-7xl"
+        className="poppins-semibold text-5xl lg:text-8xl"
       >
         harjot singh
         {/* <span className="text-purple-500">.</span> */}
@@ -104,14 +104,14 @@ export const Hero = () => {
       <div className="flex flex-row items-center gap-3">
         <button
           onClick={handleShowAlert}
-          className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 lg:hover:text-purple-500 transition duration-300 ease-in-out group"
+          className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 transition duration-300 ease-in-out group"
         >
           About Me{" "}
           <FiArrowUpRight className="transition-transform duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </button>
         <button
           onClick={handleShowAlert}
-          className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100 lg:hover:text-purple-500 transition duration-300 ease-in-out group"
+          className="poppins-regular lg:ml-2 mt-4 flex flex-row items-center gap-0.5 text-opacity-30 text-black hover:text-opacity-100  transition duration-300 ease-in-out group"
         >
           My Blog{" "}
           <FiArrowUpRight className="transition-transform duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:-translate-y-1" />

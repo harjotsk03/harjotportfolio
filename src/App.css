@@ -535,3 +535,28 @@ html, body {
 .dots span:nth-child(3) {
   animation: dotCycle 2s infinite 1s; /* 1s delay */
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+  z-index: 50; /* Make sure it overlays other content */
+}
+
+.modal-content {
+  position: relative;
+  max-width: 100%; /* Set to 100% to cover full width */
+  max-height: 100%; /* Set to 100% to cover full height */
+}
+
+.modal-image {
+  width: auto; /* Auto width to maintain aspect ratio */
+  height: 100%; /* Full height */
+  max-height: 90vh; /* Adjust to fit the viewport */
+}
